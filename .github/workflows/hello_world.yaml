@@ -11,11 +11,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - id: s00
-          run: echo "current time in GitHub is $(date)"
+          run: echo "current time in GitHub is $(date), ${GITHUB_OUTPUT}"
         - id: s01
+          run: echo "CURR_DATE=$(date)" >> $GITHUB_OUTPUT
+        - id: s02
           uses: mscoutermarsh/cowsays-action@master
           with:
-            text: 'moo moo cow!'
+            text: 'moo moo cow! ${{ steps.s01.outputs.CURR_DATE }}'
             color: 'green'
 
 
