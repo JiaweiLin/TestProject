@@ -11,4 +11,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - id: s00
-          run: echo "current time is $(date)"
+          run: echo "current time in GitHub is $(date)"
+        - id: s01
+          run: cat hello.txt
